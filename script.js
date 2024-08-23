@@ -12,7 +12,7 @@ const cta = document.querySelector(".button-wrap");
 cta.addEventListener("click", function () {
   this.classList.remove("clicked");
 
-  console.log("clicked");
+  // console.log("clicked");
 
   void this.offsetWidth;
 
@@ -75,6 +75,12 @@ function updateSVGDimensions() {
     rect.setAttribute("width", buttonRect.width - 1.5);
     rect.setAttribute("height", buttonRect.height - 1.5);
   });
+
+  // Update navigation variables as well to adapt to the new dimensions
+  const currentLink = document.querySelector(".navbar_link.w--current");
+  if (currentLink) {
+    setNavVariables(currentLink);
+  }
 }
 
 // Call the function on page load
@@ -82,6 +88,13 @@ window.addEventListener("load", updateSVGDimensions);
 
 // Call the function on resize
 window.addEventListener("resize", updateSVGDimensions);
+
+// Use ResizeObserver to listen to changes in the size of the navContainer
+const resizeObserver = new ResizeObserver(() => {
+  updateSVGDimensions();
+});
+
+resizeObserver.observe(navContainer);
 
 const svgObserver = new MutationObserver(updateSVGDimensions);
 svgObserver.observe(document.querySelector(".contact_component.glow-effect"), {
