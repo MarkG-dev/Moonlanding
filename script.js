@@ -35,8 +35,8 @@ const tlLoader = gsap.timeline({
 
 tlLoader.to(loaderScene, {
   opacity: 0,
-  delay: 0.1,
-  duration: 0.4,
+  delay: 8,
+  duration: 0.8,
 });
 
 const navContainer = document.querySelector("#navWrap");
