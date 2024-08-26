@@ -35,7 +35,7 @@ const tlLoader = gsap.timeline({
 
 tlLoader.to(loaderScene, {
   opacity: 0,
-  delay: 8,
+  delay: 10,
   duration: 0.8,
 });
 
