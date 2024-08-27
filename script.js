@@ -27,7 +27,7 @@ const loaderScene = document.getElementById("intro-scene");
 const tlLoader = gsap.timeline({
   onComplete: () => {
     heroSection.style.opacity = "100%";
-    bodyScroll.style.overflowY = "visible";
+    bodyScroll.style.overflow = "visible";
     bodyScroll.style.height = "auto";
     loaderScene.style.display = "none";
   },
@@ -35,7 +35,8 @@ const tlLoader = gsap.timeline({
 
 tlLoader.to(loaderScene, {
   opacity: 0,
-  delay: 10,
+  delay: 9,
+  ease: "power3.out",
   duration: 0.8,
 });
 
