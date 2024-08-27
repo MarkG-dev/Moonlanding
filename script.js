@@ -1,44 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const icon = document.querySelector(".icon-wrap");
-  const path = document.querySelector("#path");
-
-  const pathData = path.getAttribute("d");
-
-  icon.style.offsetPath = `path('${pathData}')`;
-  icon.style.offsetDistance = "0%";
-});
-const cta = document.querySelector(".button-wrap");
-
-cta.addEventListener("click", function () {
-  this.classList.remove("clicked");
-
-  // console.log("clicked");
-
-  void this.offsetWidth;
-
-  // Add the class to trigger the animation
-  this.classList.add("clicked");
-});
-
 const heroSection = document.getElementById("hero-section");
 const bodyScroll = document.getElementById("body-scroll");
 const loaderScene = document.getElementById("intro-scene");
 
+loaderScene.style.display = "block";
+
 const tlLoader = gsap.timeline({
   onComplete: () => {
-    heroSection.style.opacity = "100%";
+    // heroSection.style.opacity = "100%";
     bodyScroll.style.overflow = "visible";
     bodyScroll.style.height = "auto";
     loaderScene.style.display = "none";
   },
 });
 
-tlLoader.to(loaderScene, {
-  opacity: 0,
-  delay: 9,
-  ease: "power3.out",
-  duration: 0.8,
-});
+tlLoader
+  .to(loaderScene, {
+    opacity: 0.5,
+    delay: 8.5,
+    ease: "ease-in",
+    duration: 0.5,
+  })
+  .to(heroSection, {
+    opacity: 1,
+    duration: 0.5,
+    ease: "ease-out",
+  })
+  .to(loaderScene, {
+    opacity: 0,
+    ease: "ease-in",
+    duration: 0.5,
+  });
 
 const navContainer = document.querySelector("#navWrap");
 const navShape = document.querySelector(".nav_shape");
@@ -174,6 +165,28 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach((section) => {
   sectionObserver.observe(section);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const icon = document.querySelector(".icon-wrap");
+  const path = document.querySelector("#path");
+
+  const pathData = path.getAttribute("d");
+
+  icon.style.offsetPath = `path('${pathData}')`;
+  icon.style.offsetDistance = "0%";
+});
+const cta = document.querySelector(".button-wrap");
+
+cta.addEventListener("click", function () {
+  this.classList.remove("clicked");
+
+  // console.log("clicked");
+
+  void this.offsetWidth;
+
+  // Add the class to trigger the animation
+  this.classList.add("clicked");
 });
 
 document.querySelectorAll(".moon-checkbox input").forEach(function (checkbox) {
