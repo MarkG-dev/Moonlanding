@@ -6,7 +6,6 @@ loaderScene.style.display = "block";
 
 const tlLoader = gsap.timeline({
   onComplete: () => {
-    // heroSection.style.opacity = "100%";
     bodyScroll.style.overflow = "visible";
     bodyScroll.style.height = "auto";
     loaderScene.style.display = "none";
