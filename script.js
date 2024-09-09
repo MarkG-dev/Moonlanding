@@ -1,4 +1,4 @@
-gsap.matchMedia().add("(min-width: 768px)", () => {
+gsap.matchMedia().add("(min-width: 1025px)", () => {
   const heroSection = document.getElementById("hero-section");
   const bodyScroll = document.getElementById("body-scroll");
   const loaderScene = document.getElementById("intro-scene");
@@ -205,38 +205,4 @@ document.querySelectorAll(".moon-checkbox input").forEach(function (checkbox) {
       ); // Crescent moon
     }
   });
-});
-
-gsap.matchMedia().add("(min-width: 768px)", () => {
-  const heroSection = document.getElementById("hero-section");
-  const bodyScroll = document.getElementById("body-scroll");
-  const loaderScene = document.getElementById("intro-scene");
-
-  loaderScene.style.display = "block";
-
-  const tlLoader = gsap.timeline({
-    onComplete: () => {
-      bodyScroll.style.overflow = "visible";
-      bodyScroll.style.height = "auto";
-      loaderScene.style.display = "none";
-    },
-  });
-
-  tlLoader
-    .to(loaderScene, {
-      opacity: 0.5,
-      delay: 8.5,
-      ease: "ease-in",
-      duration: 0.5,
-    })
-    .to(heroSection, {
-      opacity: 1,
-      duration: 0.5,
-      ease: "ease-out",
-    })
-    .to(loaderScene, {
-      opacity: 0,
-      ease: "ease-in",
-      duration: 0.5,
-    });
 });
