@@ -30,6 +30,29 @@ gsap.matchMedia().add("(min-width: 1025px)", () => {
       ease: "ease-in",
       duration: 0.5,
     });
+
+  // Return a cleanup function
+  return () => {
+    tlLoader.kill();
+    loaderScene.style.display = "none";
+    bodyScroll.style.overflow = "visible";
+    bodyScroll.style.height = "auto";
+    heroSection.style.opacity = 1;
+  };
+});
+
+// Optionally, add a media query for tablet sizes
+gsap.matchMedia().add("(max-width: 1024px)", () => {
+  const heroSection = document.getElementById("hero-section");
+  const bodyScroll = document.getElementById("body-scroll");
+  const loaderScene = document.getElementById("intro-scene");
+
+  // Set up tablet-specific behavior here
+  loaderScene.style.display = "none";
+  bodyScroll.style.overflow = "visible";
+  bodyScroll.style.height = "auto";
+  heroSection.style.opacity = 1;
+  bodyScroll.style.opacity = 1;
 });
 
 const navContainer = document.querySelector("#navWrap");
