@@ -100,23 +100,23 @@ function updateSVGDimensions() {
 }
 
 // Call the function on page load
-window.addEventListener("load", updateSVGDimensions);
+// window.addEventListener("load", updateSVGDimensions);
 
 // Call the function on resize
-window.addEventListener("resize", updateSVGDimensions);
+// window.addEventListener("resize", updateSVGDimensions);
 
 // Use ResizeObserver to listen to changes in the size of the navContainer
-const resizeObserver = new ResizeObserver(() => {
-  updateSVGDimensions();
-});
+// const resizeObserver = new ResizeObserver(() => {
+//   updateSVGDimensions();
+// });
 
-resizeObserver.observe(navContainer);
+// resizeObserver.observe(navContainer);
 
-const svgObserver = new MutationObserver(updateSVGDimensions);
-svgObserver.observe(document.querySelector(".contact_component.glow-effect"), {
-  childList: true,
-  subtree: true,
-});
+// const svgObserver = new MutationObserver(updateSVGDimensions);
+// svgObserver.observe(document.querySelector(".contact_component.glow-effect"), {
+//   childList: true,
+//   subtree: true,
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const currentLink = document.querySelector(".navbar_link.w--current");
@@ -191,15 +191,16 @@ sections.forEach((section) => {
   sectionObserver.observe(section);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const icon = document.querySelector(".icon-wrap");
-  const path = document.querySelector("#path");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const icon = document.querySelector(".icon-wrap");
+//   const path = document.querySelector("#path");
 
-  const pathData = path.getAttribute("d");
+//   const pathData = path.getAttribute("d");
 
-  icon.style.offsetPath = `path('${pathData}')`;
-  icon.style.offsetDistance = "0%";
-});
+//   icon.style.offsetPath = `path('${pathData}')`;
+//   icon.style.offsetDistance = "0%";
+// });
+
 const cta = document.querySelector(".button-wrap");
 
 cta.addEventListener("click", function () {
